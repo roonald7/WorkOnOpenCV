@@ -18,15 +18,28 @@ project(
 
 find_package(OpenCV CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME}-01 01/main.cpp)
+add_executable(${PROJECT_NAME}-practice1 practice/practice1.cpp)
+add_executable(${PROJECT_NAME}-practice2 practice/practice2.cpp)
 
 target_link_libraries(
-    ${PROJECT_NAME}-01 
+    ${PROJECT_NAME}-practice1
+    ${OpenCV_LIBS}
+)
+
+target_link_libraries(
+    ${PROJECT_NAME}-practice2
     ${OpenCV_LIBS}
 )
 
 target_compile_features(
-    ${PROJECT_NAME}-01
+    ${PROJECT_NAME}-practice1
+
+    PUBLIC
+        cxx_std_20
+)
+
+target_compile_features(
+    ${PROJECT_NAME}-practice2
 
     PUBLIC
         cxx_std_20
